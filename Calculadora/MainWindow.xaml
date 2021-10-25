@@ -13,15 +13,22 @@
     <StackPanel VerticalAlignment="Bottom" >
         <ListView Margin="10,10,10,40" Name="listViewResultados" Height="162" HorizontalAlignment="Stretch" Background="{x:Null}" Foreground="#FFFB0A0A" BorderBrush="{x:Null}"/>
 
-        <Label Content="0.00" HorizontalAlignment="Right" FontSize="40" Cursor="IBeam" FontWeight="Bold" x:Name="labelResult" Foreground="White" Margin="0,0,10,0" />
+        <Label 
+            Content="0.00"
+            HorizontalAlignment="Right"
+            FontSize="40" Cursor="IBeam"
+            FontWeight="Bold"
+            x:Name="labelResult"
+            Foreground="White" Margin="0,0,10,0"
+            />
         <Grid MinHeight="100">
-        <Grid.ColumnDefinitions >
+            <Grid.ColumnDefinitions >
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
             </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
@@ -29,69 +36,175 @@
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Copy" Foreground="White" BorderThickness="1" 
-                Background="#FF0D2D5D" Click="CopyButton"/>
-            <Button Grid.Column="0" Grid.Row="1" Content="" IsHitTestVisible="False" 
-            Background="#FF0D2D5D" />
-            <Button Grid.Column="0" Grid.Row="2" BorderThickness="1"   Content="7" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="0" Grid.Row="3" BorderThickness="1"   Content="4" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="0" Grid.Row="4" BorderThickness="1"  Content="1" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="0" Grid.Row="5" Content="" IsHitTestVisible="False" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF0D2D5D"/>
-
-            <Button Grid.Column="1" Grid.Row="0" Content="" IsHitTestVisible="False" Background="#FF0D2D5D"/>
-            <Button Grid.Column="1" Grid.Row="1" Content="" IsHitTestVisible="False" Background="#FF0D2D5D"/>
-            <Button Grid.Column="1" Grid.Row="2" Content="8" FontSize="24" 
-                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
-
-            <Button Grid.Column="1" Grid.Row="3" Content="5" FontSize="24"
-                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="1" Grid.Row="4" Content="2" FontSize="24"
-                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="1" BorderThickness="1"  Grid.Row="5" Content="0" FontSize="24"
-                Click="ButtonNumberPressed">
             
-            </Button>
-
-            <Button Grid.Column="2" Grid.Row="0" Content="C" BorderThickness="1" 
-            Background="#FF0D2D5D" FontSize="24"
-                Click="ButtonDelete" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="1" Content="" IsHitTestVisible="False"
+            <Button 
+                Content="0"
+                Grid.Column="1"
+                Grid.Row="5"
                 Click="ButtonNumberPressed"
-            Background="#FF0D2D5D"/>
-            <Button Grid.Column="2" Grid.Row="2" BorderThickness="1"   Content="9" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="3" BorderThickness="1"  Content="6" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="4" BorderThickness="1"  Content="3" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="5" BorderThickness="1"  Content="." FontSize="24"
-                    Click="ButtonCommaPressed" Background="#FF0D2D5D" Foreground="White"/>
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="1"
+                Grid.Column="0"
+                Grid.Row="4"
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="2" 
+                Grid.Column="1" 
+                Grid.Row="4"
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="3" 
+                Grid.Column="2"
+                Grid.Row="4" 
+                Click="ButtonNumberPressed" 
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="4"
+                Grid.Column="0"
+                Grid.Row="3"
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="5" 
+                Grid.Column="1"
+                Grid.Row="3"
+                Click="ButtonNumberPressed" 
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="6" 
+                Grid.Column="2"
+                Grid.Row="3" 
+                Click="ButtonNumberPressed" 
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="7"
+                Grid.Column="0"
+                Grid.Row="2"
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="8"
+                Grid.Column="1" 
+                Grid.Row="2" 
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
+            <Button 
+                Content="9"
+                Grid.Column="2"
+                Grid.Row="2"
+                Click="ButtonNumberPressed"
+                Style="{StaticResource botonNumero}"
+                />
 
-            <Button Grid.Column="3" Grid.Row="0" BorderThickness="1"  Content="&lt;" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonErase" Foreground="White"/>
-        <Button Grid.Column="3" Grid.Row="1" Content="/" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="2" BorderThickness="1"   Content="*" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="3" BorderThickness="1"  Content="+" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="4" BorderThickness="1"  Content="-" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="5" BorderThickness="1"  Content="=" FontSize="24"
-            Background="#FF0D2D5D"
-                Click="ButtonResult" Foreground="White"/>
+            <Button 
+                Content="." 
+                Grid.Column="2"
+                Grid.Row="5"
+                Click="ButtonCommaPressed"
+                Style="{StaticResource botonAccion}"
+                />
 
-    </Grid>
-        <RadioButton Content="RadioButton" Height="17" Width="3"/>
+            <Button 
+                Content="&lt;" 
+                Grid.Column="3"
+                Grid.Row="0"
+                Click="ButtonErase"
+                Style="{StaticResource botonAccion}"
+                />
+            <Button 
+                Content="/"
+                Grid.Column="3"
+                Grid.Row="1"
+                Click="ButtonActionPressed" 
+                Style="{StaticResource botonAccion}"
+                />
+            <Button 
+                Content="*"
+                Grid.Column="3"
+                Grid.Row="2" 
+                Click="ButtonActionPressed" 
+                Style="{StaticResource botonAccion}"
+                />
+            <Button 
+                Content="+" 
+                Grid.Column="3"
+                Grid.Row="3"
+                Click="ButtonActionPressed" 
+                Style="{StaticResource botonAccion}"
+                />
+            <Button 
+                Content="-" 
+                Grid.Column="3"
+                Grid.Row="4"
+                Click="ButtonActionPressed"
+                Style="{StaticResource botonAccion}"
+                />
+            <Button
+                Content="=" 
+                Grid.Column="3"
+                Grid.Row="5" 
+                Click="ButtonResult"
+                Style="{StaticResource botonAccion}"
+                />
+            <Button 
+                Content="Copy" 
+                Grid.Column="0" 
+                Grid.Row="0" 
+                Click="CopyButton"
+                Style="{StaticResource botonAccion}"
+                />
+            <Button
+                Content="C" 
+                Grid.Column="2"
+                Grid.Row="0" 
+                Click="ButtonDelete"
+                Style="{StaticResource botonAccion}"
+                />
+            
+            <Button 
+                Content=""
+                Grid.Column="2" 
+                Grid.Row="1" 
+                Style="{StaticResource botonVacio}"
+                />
+            <Button 
+                Content=""
+                Grid.Column="0"
+                Grid.Row="1"
+                Style="{StaticResource botonVacio}"
+                />
+            <Button
+                Content=""
+                Grid.Column="0"
+                Grid.Row="5"
+                Style="{StaticResource botonVacio}"
+                />
+
+            <Button 
+                Content=""
+                Grid.Column="1"
+                Grid.Row="0"
+                Style="{StaticResource botonVacio}"
+                />
+            <Button 
+                Content="" 
+                Grid.Column="1"
+                Grid.Row="1" 
+                Style="{StaticResource botonVacio}"
+                />
+        </Grid>
     </StackPanel>
 
 </Window>

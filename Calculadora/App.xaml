@@ -6,27 +6,26 @@
     <Application.Resources>
 
 
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border
-                                    x:Name="border"
-                                    Background="#FF205AAE"
-                                    BorderBrush="#161617"
-                                    BorderThickness="1"
-                                    TextBlock.Foreground="White">
-
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True"
->
-                                <Setter Property="Background" Value="Black"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        <Style x:Key="botonAccion" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF0D2D5D"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#000000"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style x:Key="botonNumero" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#3c7cde"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#000000"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style x:Key="botonVacio" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF0D2D5D"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="BorderBrush" Value="#000000"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </Application.Resources>
 </Application>

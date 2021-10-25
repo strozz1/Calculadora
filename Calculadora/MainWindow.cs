@@ -81,8 +81,8 @@ namespace Calculadora
         {
             String[] actions = { "+", "-", "*", "/" };
             Button boton = (Button)sender;
-            foreach (String valor in actions)
-            {
+            if (currentOperation == "") return;
+            foreach (string valor in actions){
                 if (currentOperation.Last().ToString() == valor)
                 {
                     currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
@@ -109,7 +109,7 @@ namespace Calculadora
         public void OnHoverIn(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            b.Background = new SolidColorBrush(Color.FromArgb(22, 22, 23, 100));
+            b.Background = Brushes.Lavender;
         }
         public void OnHoverOut(object sender, EventArgs e)
         {
