@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {}
+    "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {}
   },
   "projects": {
-    "D:\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {
+    "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
+        "projectUniqueName": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
         "projectName": "Calculadora",
-        "projectPath": "D:\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
+        "projectPath": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
         "packagesPath": "C:\\Users\\AlumnoDAM\\.nuget\\packages\\",
-        "outputPath": "D:\\GitRepos\\calculadora\\Calculadora\\obj\\",
+        "outputPath": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

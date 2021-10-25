@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
         Title="MainWindow" Height="600" Width="400" MaxWidth="800" MaxHeight="960" Background="#FF0D2D5D">
+    <Window.Resources>
+
+    </Window.Resources>
 
 
     <StackPanel VerticalAlignment="Bottom" >
@@ -26,15 +29,15 @@
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" Content="Copy" Foreground="White" BorderThickness="1" BorderBrush="White"
+            <Button Grid.Column="0" Grid.Row="0" Content="Copy" Foreground="White" BorderThickness="1" 
                 Background="#FF0D2D5D" Click="CopyButton"/>
             <Button Grid.Column="0" Grid.Row="1" Content="" IsHitTestVisible="False" 
             Background="#FF0D2D5D" />
-            <Button Grid.Column="0" Grid.Row="2" BorderThickness="1" BorderBrush="White" Content="7" FontSize="24"
+            <Button Grid.Column="0" Grid.Row="2" BorderThickness="1"   Content="7" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="0" Grid.Row="3" BorderThickness="1" BorderBrush="White"  Content="4" FontSize="24"
+            <Button Grid.Column="0" Grid.Row="3" BorderThickness="1"   Content="4" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="0" Grid.Row="4" BorderThickness="1" BorderBrush="White" Content="1" FontSize="24"
+            <Button Grid.Column="0" Grid.Row="4" BorderThickness="1"  Content="1" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
             <Button Grid.Column="0" Grid.Row="5" Content="" IsHitTestVisible="False" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF0D2D5D"/>
@@ -42,50 +45,53 @@
             <Button Grid.Column="1" Grid.Row="0" Content="" IsHitTestVisible="False" Background="#FF0D2D5D"/>
             <Button Grid.Column="1" Grid.Row="1" Content="" IsHitTestVisible="False" Background="#FF0D2D5D"/>
             <Button Grid.Column="1" Grid.Row="2" Content="8" FontSize="24" 
-                Click="ButtonNumberPressed" BorderThickness="1" BorderBrush="White" Background="#FF205AAE" Foreground="White"/>
+                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
 
             <Button Grid.Column="1" Grid.Row="3" Content="5" FontSize="24"
-                Click="ButtonNumberPressed" BorderThickness="1" BorderBrush="White" Background="#FF205AAE" Foreground="White"/>
+                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
             <Button Grid.Column="1" Grid.Row="4" Content="2" FontSize="24"
-                Click="ButtonNumberPressed" BorderThickness="1" BorderBrush="White" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="1" BorderThickness="1" BorderBrush="White" Grid.Row="5" Content="0" FontSize="24"
-                Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
+                Click="ButtonNumberPressed" BorderThickness="1"  Background="#FF205AAE" Foreground="White"/>
+            <Button Grid.Column="1" BorderThickness="1"  Grid.Row="5" Content="0" FontSize="24"
+                Click="ButtonNumberPressed">
+            
+            </Button>
 
-            <Button Grid.Column="2" Grid.Row="0" Content="C" BorderThickness="1" BorderBrush="White"
+            <Button Grid.Column="2" Grid.Row="0" Content="C" BorderThickness="1" 
             Background="#FF0D2D5D" FontSize="24"
                 Click="ButtonDelete" Foreground="White"/>
             <Button Grid.Column="2" Grid.Row="1" Content="" IsHitTestVisible="False"
                 Click="ButtonNumberPressed"
             Background="#FF0D2D5D"/>
-            <Button Grid.Column="2" Grid.Row="2" BorderThickness="1" BorderBrush="White" Content="9" FontSize="24"
+            <Button Grid.Column="2" Grid.Row="2" BorderThickness="1"   Content="9" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="3" BorderThickness="1" BorderBrush="White" Content="6" FontSize="24"
+            <Button Grid.Column="2" Grid.Row="3" BorderThickness="1"  Content="6" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="4" BorderThickness="1" BorderBrush="White" Content="3" FontSize="24"
+            <Button Grid.Column="2" Grid.Row="4" BorderThickness="1"  Content="3" FontSize="24"
                 Click="ButtonNumberPressed" Background="#FF205AAE" Foreground="White"/>
-            <Button Grid.Column="2" Grid.Row="5" BorderThickness="1" BorderBrush="White" Content="." FontSize="24"
+            <Button Grid.Column="2" Grid.Row="5" BorderThickness="1"  Content="." FontSize="24"
                     Click="ButtonCommaPressed" Background="#FF0D2D5D" Foreground="White"/>
 
-            <Button Grid.Column="3" Grid.Row="0" BorderThickness="1" BorderBrush="White" Content="&lt;" FontSize="24"
+            <Button Grid.Column="3" Grid.Row="0" BorderThickness="1"  Content="&lt;" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonErase" Foreground="White"/>
         <Button Grid.Column="3" Grid.Row="1" Content="/" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="2" BorderThickness="1" BorderBrush="White"  Content="*" FontSize="24"
+            <Button Grid.Column="3" Grid.Row="2" BorderThickness="1"   Content="*" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="3" BorderThickness="1" BorderBrush="White" Content="+" FontSize="24"
+            <Button Grid.Column="3" Grid.Row="3" BorderThickness="1"  Content="+" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="4" BorderThickness="1" BorderBrush="White" Content="-" FontSize="24"
+            <Button Grid.Column="3" Grid.Row="4" BorderThickness="1"  Content="-" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonActionPressed" Foreground="White"/>
-            <Button Grid.Column="3" Grid.Row="5" BorderThickness="1" BorderBrush="White" Content="=" FontSize="24"
+            <Button Grid.Column="3" Grid.Row="5" BorderThickness="1"  Content="=" FontSize="24"
             Background="#FF0D2D5D"
                 Click="ButtonResult" Foreground="White"/>
 
     </Grid>
+        <RadioButton Content="RadioButton" Height="17" Width="3"/>
     </StackPanel>
 
 </Window>

@@ -105,6 +105,16 @@ namespace Calculadora
         public void CopyButton(object sender, EventArgs e)
         {
             Clipboard.SetText(currentOperation);
+        } 
+        public void OnHoverIn(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = new SolidColorBrush(Color.FromArgb(22, 22, 23, 100));
+        }
+        public void OnHoverOut(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.Background = new SolidColorBrush(Color.FromArgb(30, 90, 174,100));
         }
         public string GetResult()
         {

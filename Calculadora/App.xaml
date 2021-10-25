@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:Calculadora"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                                    x:Name="border"
+                                    Background="#FF205AAE"
+                                    BorderBrush="#161617"
+                                    BorderThickness="1"
+                                    TextBlock.Foreground="White">
+
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"
+>
+                                <Setter Property="Background" Value="Black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
