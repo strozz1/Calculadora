@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Programacion\\Proyectos\\_Clase\\Calculadora\\Calculadora\\Calculadora.csproj": {}
+    "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {}
   },
   "projects": {
-    "F:\\Programacion\\Proyectos\\_Clase\\Calculadora\\Calculadora\\Calculadora.csproj": {
+    "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Programacion\\Proyectos\\_Clase\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "projectUniqueName": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
         "projectName": "Calculadora",
-        "projectPath": "F:\\Programacion\\Proyectos\\_Clase\\Calculadora\\Calculadora\\Calculadora.csproj",
-        "packagesPath": "C:\\Users\\triss\\.nuget\\packages\\",
-        "outputPath": "F:\\Programacion\\Proyectos\\_Clase\\Calculadora\\Calculadora\\obj\\",
+        "projectPath": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\Calculadora.csproj",
+        "packagesPath": "C:\\Users\\AlumnoDAM\\.nuget\\packages\\",
+        "outputPath": "D:\\DAM\\GitRepos\\calculadora\\Calculadora\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\triss\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\AlumnoDAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -28,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -16,112 +16,97 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Calculadora
-{
+namespace Calculadora {
 
-    public partial class MainWindow : Window
-    {
-        private String currentOperation="";
+    public partial class MainWindow : Window {
+        private String currentOperation = "";
         private ObservableCollection<String> list;
-        public MainWindow()
-        {
+        public MainWindow() {
             InitializeComponent();
             list = new ObservableCollection<String>();
-            
+
         }
-        public void AddResultado(String resultado)
-        {
+        public void AddResultado(String resultado) {
+            if(list.Count == 5) list.Remove(list.First());
             list.Add(resultado);
             listViewResultados.ItemsSource = list;
         }
-        public void ButtonNumberPressed(object sender, EventArgs e)
-        {
+        public void ButtonNumberPressed(object sender, EventArgs e) {
             Button boton = (Button)sender;
             currentOperation += boton.Content.ToString();
             labelResult.Content = currentOperation;
         }
-        public void ButtonActionPressed(object sender, EventArgs e)
-        {
-            String[] actions = { "+", "-", "*", "/" };
+        public void ButtonActionPressed(object sender, EventArgs e) {
+            string[] actions = { "+", "-", "*", "/" };
             Button boton = (Button)sender;
-            String valorBoton= boton.Content.ToString();
-            if (currentOperation == "") return;
-            foreach(String valor in actions)
+            string valorBoton = boton.Content.ToString();
+            if(currentOperation != "")
             {
-                if(currentOperation.Last().ToString()== valor)
+                foreach(string valor in actions)
                 {
-                    if(valor!="+" && valor!= "-")
-                     currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+
+                    if(currentOperation.Last().ToString() == valor)
+                        currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
                 }
             }
             currentOperation += valorBoton;
             labelResult.Content = currentOperation;
         }
-        public void ButtonDelete(object sender, EventArgs e)
-        {
+        public void ButtonDelete(object sender, EventArgs e) {
             currentOperation = "";
             labelResult.Content = "0.00";
         }
-        public void ButtonCommaPressed(object sender, EventArgs e)
-        {
+        public void ButtonCommaPressed(object sender, EventArgs e) {
             Button boton = (Button)sender;
             String valorBoton = boton.Content.ToString();
-            if (Regex.Match(currentOperation, "[.]").Success)
+            if(Regex.Match(currentOperation, "[.]").Success)
                 return;
-                if (!Regex.Match(currentOperation, "\\d{1}$").Success)
+            if(!Regex.Match(currentOperation, "\\d{1}$").Success)
             {
                 currentOperation += "0";
 
             }
-            currentOperation +=valorBoton;
+            currentOperation += valorBoton;
 
             labelResult.Content = currentOperation;
         }
-        public void ButtonResult(object sender, EventArgs e)
-        {
-            String[] actions = { "+", "-", "*", "/" };
+        public void ButtonResult(object sender, EventArgs e) {
+            string[] actions = { "+", "-", "*", "/" };
             Button boton = (Button)sender;
-            if (currentOperation == "") return;
-            foreach (string valor in actions){
-                if (currentOperation.Last().ToString() == valor)
+            if(currentOperation != "")
+            {
+                foreach(string valor in actions)
                 {
-                    currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+                    if(currentOperation.Last().ToString() == valor)
+                    {
+                        currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+                    }
                 }
+                labelLastResult.Content = currentOperation;
+                labelResult.Content = GetResult();
+                AddResultado(currentOperation);
             }
-  
-            labelResult.Content = GetResult();
         }
-        public void ButtonErase(object sender, EventArgs e)
-        {
-            if (currentOperation.Length < 2)
+        public void ButtonErase(object sender, EventArgs e) {
+            if(currentOperation.Length < 2)
             {
                 currentOperation = "";
                 labelResult.Content = "0.00";
-                return;
+            } else
+            {
+                currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+                labelResult.Content = currentOperation;
             }
-            currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
-            labelResult.Content = currentOperation;
         }
-        public void CopyButton(object sender, EventArgs e)
-        {
+        public void CopyButton(object sender, EventArgs e) {
             Clipboard.SetText(currentOperation);
-        } 
-        public void OnHoverIn(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            b.Background = Brushes.Lavender;
+            MessageBox.Show("Resultado " + currentOperation + " copiado correctamente", "Resultado copiado", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        public void OnHoverOut(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            b.Background = new SolidColorBrush(Color.FromArgb(30, 90, 174,100));
-        }
-        public string GetResult()
-        {
-            DataTable dt = new DataTable();
-            var v = dt.Compute(currentOperation, "");
-            currentOperation = v.ToString();
-            AddResultado(currentOperation);
+
+        public string GetResult() {
+            DataTable dataTable = new DataTable();
+            var result = dataTable.Compute(currentOperation, "");
+            currentOperation = result.ToString();
             return currentOperation;
         }
 

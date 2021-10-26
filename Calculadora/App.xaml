@@ -5,27 +5,48 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-
-        <Style x:Key="botonAccion" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#FF0D2D5D"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#000000"/>
-            <Setter Property="BorderThickness" Value="1"/>
+        <Style x:Key="BasicButton" TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        BorderBrush="black" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF4D6C83" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
-        <Style x:Key="botonNumero" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#3c7cde"/>
+        <Style BasedOn="{StaticResource BasicButton}"  x:Key="botonAccion" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#F0A500"/>
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#000000"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style BasedOn="{StaticResource BasicButton}" x:Key="botonNumero" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#082032"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#757575"/>
+            <Setter Property="BorderThickness" Value="0"/>
+           
         </Style>
         <Style x:Key="botonVacio" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#FF0D2D5D"/>
+            <Setter Property="Background" Value="#F0A500"/>
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="BorderBrush" Value="#000000"/>
+            <Setter Property="BorderBrush" Value="#757575"/>
             <Setter Property="IsHitTestVisible" Value="False"/>
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
     </Application.Resources>
 </Application>

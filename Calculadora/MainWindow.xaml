@@ -4,15 +4,36 @@
         xmlns:d="http://schemas .microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
-        Title="MainWindow" Height="600" Width="400" MaxWidth="800" MaxHeight="960" Background="#FF0D2D5D">
+        Title="MainWindow" Height="570" Width="394" MaxWidth="800" MaxHeight="960" Background="#FF334756">
     <Window.Resources>
 
     </Window.Resources>
 
 
     <StackPanel VerticalAlignment="Bottom" >
-        <ListView Margin="10,10,10,40" Name="listViewResultados" Height="162" HorizontalAlignment="Stretch" Background="{x:Null}" Foreground="#FFFB0A0A" BorderBrush="{x:Null}"/>
-
+        <Label 
+            Content="Last Results"
+            HorizontalAlignment="Right"
+            FontSize="24"
+            Padding="0,0,10,0"
+            Foreground="#FFDEDEDE"
+            FontWeight="DemiBold"
+            
+            />
+        <ListView 
+            x:Name="listViewResultados" 
+            HorizontalContentAlignment="Right"
+            BorderThickness="0"
+            VerticalAlignment="Bottom"
+            Height="105"
+            Background="{x:Null}" 
+            Foreground="#FFC1C1C1">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel  VerticalAlignment="Bottom" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
         <Label 
             Content="0.00"
             HorizontalAlignment="Right"
@@ -20,6 +41,16 @@
             FontWeight="Bold"
             x:Name="labelResult"
             Foreground="White" Margin="0,0,10,0"
+            />
+        <Label 
+            Content="0.00"
+            HorizontalAlignment="Right"
+            FontSize="24"
+            Padding="0,0,10,0"
+            Foreground="#FFBBBBBB"
+            FontWeight="DemiBold"
+             x:Name="labelLastResult"
+            
             />
         <Grid MinHeight="100">
             <Grid.ColumnDefinitions >
@@ -36,7 +67,7 @@
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
                 <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
             </Grid.RowDefinitions>
-            
+
             <Button 
                 Content="0"
                 Grid.Column="1"
@@ -156,6 +187,7 @@
                 Grid.Column="3"
                 Grid.Row="5" 
                 Click="ButtonResult"
+                Background="#F0A500"
                 Style="{StaticResource botonAccion}"
                 />
             <Button 
@@ -172,37 +204,37 @@
                 Click="ButtonDelete"
                 Style="{StaticResource botonAccion}"
                 />
-            
+
             <Button 
                 Content=""
                 Grid.Column="2" 
                 Grid.Row="1" 
-                Style="{StaticResource botonVacio}"
+                Style="{StaticResource botonAccion}"
                 />
             <Button 
                 Content=""
                 Grid.Column="0"
                 Grid.Row="1"
-                Style="{StaticResource botonVacio}"
+                Style="{StaticResource botonAccion}"
                 />
             <Button
                 Content=""
                 Grid.Column="0"
                 Grid.Row="5"
-                Style="{StaticResource botonVacio}"
+                Style="{StaticResource botonAccion}"
                 />
 
             <Button 
                 Content=""
                 Grid.Column="1"
                 Grid.Row="0"
-                Style="{StaticResource botonVacio}"
+                Style="{StaticResource botonAccion}"
                 />
             <Button 
                 Content="" 
                 Grid.Column="1"
                 Grid.Row="1" 
-                Style="{StaticResource botonVacio}"
+                Style="{StaticResource botonAccion}"
                 />
         </Grid>
     </StackPanel>
