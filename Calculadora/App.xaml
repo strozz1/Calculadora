@@ -34,7 +34,7 @@
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
         <Style BasedOn="{StaticResource BasicButton}" x:Key="botonNumero" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#082032"/>
+            <Setter Property="Background" Value="#FF334756"/> 
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#757575"/>
