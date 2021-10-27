@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
         Title="MainWindow" Height="570" Width="394" MaxWidth="800" MaxHeight="960" Background="#082032">
+    
     <Window.Resources>
 
     </Window.Resources>
 
 
-    <StackPanel VerticalAlignment="Bottom" >
+    <StackPanel
+        VerticalAlignment="Bottom"
+        
+        >
         <Label 
             Content="Last Results"
             HorizontalAlignment="Right"
@@ -34,6 +38,13 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
+        <Border
+            Width="40"
+            Height="40">
+            <Border.Background>
+                <ImageBrush ImageSource="resources/history.png"/>
+            </Border.Background>
+        </Border>
         <Label 
             Content="0.00"
             HorizontalAlignment="Right"
