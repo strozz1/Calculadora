@@ -19,15 +19,15 @@ using System.Windows.Shapes;
 namespace Calculadora {
 
     public partial class MainWindow : Window {
-        private String currentOperation = "";
+        private string currentOperation = "";
         private ObservableCollection<String> list;
         public MainWindow() {
             InitializeComponent();
-            list = new ObservableCollection<String>();
+            list = new ObservableCollection<string>();
 
         }
-        public void AddResultado(String resultado) {
-            if(list.Count == 5) list.Remove(list.First());
+        public void AddResultado(string resultado) {
+            if (list.Count == 5) list.Remove(list.First());
             list.Add(resultado);
             listViewResultados.ItemsSource = list;
         }
@@ -38,11 +38,12 @@ namespace Calculadora {
         }
         public void ButtonActionPressed(object sender, EventArgs e) {
             Button boton = (Button)sender;
+            bool expresionEstaVacia = currentOperation == "";
+            if (expresionEstaVacia) return;
             string valorBoton = boton.Content.ToString();
-            bool expresionTerminaOperacion = Regex.Match(currentOperation.Last().ToString(), "[/*+-]" ).Success;
-            if(currentOperation != "" && expresionTerminaOperacion)
-                        currentOperation = currentOperation[0..^1];
-                
+            bool expresionTerminaOperacion = Regex.Match(currentOperation.Last().ToString(), "[/*+-]").Success;
+            if (expresionTerminaOperacion)
+                currentOperation = currentOperation[0..^1];
             currentOperation += valorBoton;
             labelResult.Content = currentOperation;
         }
@@ -69,10 +70,11 @@ namespace Calculadora {
         }
         public void ButtonResult(object sender, EventArgs e) {
             string[] actions = { "+", "-", "*", "/" };
-            Button boton = (Button)sender;
+            bool expresionEstaVacia = currentOperation == "";
+            if (expresionEstaVacia) return;
             bool expresionAcabaEnOperacion = Regex.Match(currentOperation.Last().ToString(), "[+-/*]$").Success;
-            if(currentOperation != "" && expresionAcabaEnOperacion)
-                currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+            if (expresionAcabaEnOperacion)
+                currentOperation = currentOperation[0..^1];
 
             labelLastResult.Content = currentOperation;
             labelResult.Content = GetResult();
@@ -80,27 +82,29 @@ namespace Calculadora {
 
         }
         public void ButtonErase(object sender, EventArgs e) {
-            if(currentOperation.Length < 2)
-            {
+            if (currentOperation.Length < 2) {
                 currentOperation = "";
                 labelResult.Content = "0.00";
-            } else
-            {
-                currentOperation = currentOperation.Substring(0, currentOperation.Length - 1);
+            }
+            else {
+                currentOperation = currentOperation[0..^1];
                 labelResult.Content = currentOperation;
             }
         }
 
 
         public void CopyButton(object sender, EventArgs e) {
-            Clipboard.SetText(currentOperation);
-            MessageBox.Show("Resultado " + currentOperation + " copiado correctamente", "Resultado copiado", MessageBoxButton.OK, MessageBoxImage.Information);
+            bool expresionEstaVacia = currentOperation == "";
+            if (expresionEstaVacia)
+                Clipboard.SetText("0.00");
+            else
+                Clipboard.SetText(currentOperation);
         }
 
         public string GetResult() {
             DataTable dataTable = new DataTable();
             var result = dataTable.Compute(currentOperation, "");
-            currentOperation = result.ToString();
+            currentOperation = result.ToString().Replace(",",".");
             return currentOperation;
         }
 

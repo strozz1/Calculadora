@@ -4,47 +4,44 @@
         xmlns:d="http://schemas .microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
-        Title="MainWindow" Height="570" Width="394" MaxWidth="800" MaxHeight="960" Background="#082032">
+        Title="Calculadora" Width="394" MaxWidth="800" MaxHeight="960" Background="#082032" SizeToContent="Height" WindowStartupLocation="CenterScreen">
     
     <Window.Resources>
 
     </Window.Resources>
-
-
-    <StackPanel
-        VerticalAlignment="Bottom"
+  
         
+    
+    <StackPanel 
+        VerticalAlignment="Bottom"
         >
-        <Label 
-            Content="Last Results"
+        <Expander 
+            Margin=" 0,0,10,0"
+            Header="Last Results"
+            Name="lastResultsExpander" 
+            FontSize="20"
+            Foreground="White"
+            Background="Transparent"
             HorizontalAlignment="Right"
-            FontSize="24"
-            Padding="0,0,10,0"
-            Foreground="#FFDEDEDE"
-            FontWeight="DemiBold"
-            
-            />
-        <ListView 
+            ExpandDirection="Up"
+            IsExpanded="False"
+            >
+            <ListView 
             x:Name="listViewResultados" 
             HorizontalContentAlignment="Right"
             BorderThickness="0"
             VerticalAlignment="Bottom"
-            Height="105"
-            Background="{x:Null}" 
-            Foreground="#FFC1C1C1">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel  VerticalAlignment="Bottom" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-        </ListView>
-        <Border
-            Width="40"
-            Height="40">
-            <Border.Background>
-                <ImageBrush ImageSource="resources/history.png"/>
-            </Border.Background>
-        </Border>
+            Background="Transparent" 
+            Foreground="White">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel  VerticalAlignment="Bottom" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Expander>
+
+        
         <Label 
             Content="0.00"
             HorizontalAlignment="Right"
@@ -63,7 +60,7 @@
              x:Name="labelLastResult"
             
             />
-        <Grid MinHeight="100">
+        <Grid MinHeight="100" Panel.ZIndex="1000">
             <Grid.ColumnDefinitions >
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
                 <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
@@ -247,6 +244,7 @@
                 Grid.Row="1" 
                 Style="{StaticResource botonAccion}"
                 />
+
         </Grid>
     </StackPanel>
 
