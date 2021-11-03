@@ -79,3 +79,4 @@ D:\DAM\GitRepos\calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.cspr
 D:\DAM\GitRepos\calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.dll
 D:\DAM\GitRepos\calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.pdb
 D:\DAM\GitRepos\calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.genruntimeconfig.cache
+D:\DAM\GitRepos\calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.csproj.AssemblyReference.cache

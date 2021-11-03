@@ -20,7 +20,7 @@
                  MouseLeftButtonDown="OnMoreResultsButton"
                 Width="30"
                 HorizontalAlignment="Right"
-                Source="/resources/history.png"/>
+                Source="/resources/history_orange.png"/>
 
 
 
@@ -231,10 +231,13 @@
             </Grid>
         </StackPanel>
         <DockPanel 
-            Margin="12" 
+            Margin="12,5,12,5" 
             Visibility="Collapsed"
             x:Name="lastResults">
             <StackPanel DockPanel.Dock="Top">
+                <StackPanel Orientation="Horizontal">
+                    
+              
                 <Label
                     Content="Last Results"
                     FontSize="20"
@@ -242,11 +245,21 @@
                     Foreground="#F0A500"
                     HorizontalAlignment="Center"
                     DockPanel.Dock="Top"/>
+
+                    <Button Content="Clear"
+                            Margin="10,5,0,10"
+                            Style="{StaticResource botonClear}"
+                            FontSize="15"
+                            BorderThickness="0"
+                            Foreground="White"
+                            Click="OnClearButton" />
+                </StackPanel>
                 <ListView 
                     x:Name="listViewResultados" 
                     HorizontalContentAlignment="Right"
                     BorderThickness="0"
                     Background="Transparent" 
+                    FontSize="20"
                     Foreground="White">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>

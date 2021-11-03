@@ -120,6 +120,8 @@ namespace Calculadora {
                 lastResults.Visibility = 0;
                 isResultsOpened = !isResultsOpened;
             }
+        }public void OnClearButton(object sender, EventArgs e) {
+            list.Clear();
         }
 
     }

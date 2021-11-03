@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="resources\history.png" />
+    <None Remove="resources\history_orange.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="resources\history.png" />
+    <Resource Include="resources\history_orange.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
