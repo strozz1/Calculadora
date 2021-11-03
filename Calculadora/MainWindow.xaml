@@ -4,45 +4,28 @@
         xmlns:d="http://schemas .microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora"
-        Title="Calculadora" Width="394" MaxWidth="800" MaxHeight="960" Background="#082032" SizeToContent="Height" WindowStartupLocation="CenterScreen">
-    
+        
+        Title="Calculadora" Width="394" MaxWidth="800" MaxHeight="960" Background="#082032" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
 
     </Window.Resources>
-  
-        
-    
-    <StackPanel 
-        VerticalAlignment="Bottom"
-        >
-        <Expander 
-            Margin=" 0,0,10,0"
-            Header="Last Results"
-            Name="lastResultsExpander" 
-            FontSize="20"
-            Foreground="White"
-            Background="Transparent"
-            HorizontalAlignment="Right"
-            ExpandDirection="Up"
-            IsExpanded="False"
-            >
-            <ListView 
-            x:Name="listViewResultados" 
-            HorizontalContentAlignment="Right"
-            BorderThickness="0"
-            VerticalAlignment="Bottom"
-            Background="Transparent" 
-            Foreground="White">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <VirtualizingStackPanel  VerticalAlignment="Bottom" />
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-            </ListView>
-        </Expander>
 
-        
-        <Label 
+    <StackPanel
+        Orientation="Horizontal">
+        <StackPanel
+        Margin="6"
+        VerticalAlignment="Bottom" Width="342">
+            <Image
+                 MouseLeftButtonDown="OnMoreResultsButton"
+                Width="30"
+                HorizontalAlignment="Right"
+                Source="/resources/history.png"/>
+
+
+
+
+            <Label 
             Content="0.00"
             HorizontalAlignment="Right"
             FontSize="40" Cursor="IBeam"
@@ -50,7 +33,7 @@
             x:Name="labelResult"
             Foreground="White" Margin="0,0,10,0"
             />
-        <Label 
+            <Label 
             Content="0.00"
             HorizontalAlignment="Right"
             FontSize="24"
@@ -60,86 +43,86 @@
              x:Name="labelLastResult"
             
             />
-        <Grid MinHeight="100" Panel.ZIndex="1000">
-            <Grid.ColumnDefinitions >
-                <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
-                <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
-                <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
-                <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-                <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
-            </Grid.RowDefinitions>
+            <Grid MinHeight="100" Panel.ZIndex="1000">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
+                    <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
+                    <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
+                    <ColumnDefinition MinWidth="50" Width="2*" MaxWidth="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                    <RowDefinition MinHeight="50" Height="2*" MaxHeight="200"/>
+                </Grid.RowDefinitions>
 
-            <Button 
+                <Button 
                 Content="0"
                 Grid.Column="1"
                 Grid.Row="5"
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="1"
                 Grid.Column="0"
                 Grid.Row="4"
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="2" 
                 Grid.Column="1" 
                 Grid.Row="4"
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="3" 
                 Grid.Column="2"
                 Grid.Row="4" 
                 Click="ButtonNumberPressed" 
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="4"
                 Grid.Column="0"
                 Grid.Row="3"
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="5" 
                 Grid.Column="1"
                 Grid.Row="3"
                 Click="ButtonNumberPressed" 
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="6" 
                 Grid.Column="2"
                 Grid.Row="3" 
                 Click="ButtonNumberPressed" 
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="7"
                 Grid.Column="0"
                 Grid.Row="2"
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="8"
                 Grid.Column="1" 
                 Grid.Row="2" 
                 Click="ButtonNumberPressed"
                 Style="{StaticResource botonNumero}"
                 />
-            <Button 
+                <Button 
                 Content="9"
                 Grid.Column="2"
                 Grid.Row="2"
@@ -147,7 +130,7 @@
                 Style="{StaticResource botonNumero}"
                 />
 
-            <Button 
+                <Button 
                 Content="." 
                 Grid.Column="2"
                 Grid.Row="5"
@@ -155,42 +138,42 @@
                 Style="{StaticResource botonAccion}"
                 />
 
-            <Button 
+                <Button 
                 Content="&lt;" 
                 Grid.Column="3"
                 Grid.Row="0"
                 Click="ButtonErase"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="/"
                 Grid.Column="3"
                 Grid.Row="1"
                 Click="ButtonActionPressed" 
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="*"
                 Grid.Column="3"
                 Grid.Row="2" 
                 Click="ButtonActionPressed" 
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="+" 
                 Grid.Column="3"
                 Grid.Row="3"
                 Click="ButtonActionPressed" 
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="-" 
                 Grid.Column="3"
                 Grid.Row="4"
                 Click="ButtonActionPressed"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button
+                <Button
                 Content="=" 
                 Grid.Column="3"
                 Grid.Row="5" 
@@ -198,14 +181,14 @@
                 Background="#F0A500"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="Copy" 
                 Grid.Column="0" 
                 Grid.Row="0" 
                 Click="CopyButton"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button
+                <Button
                 Content="C" 
                 Grid.Column="2"
                 Grid.Row="0" 
@@ -213,39 +196,70 @@
                 Style="{StaticResource botonAccion}"
                 />
 
-            <Button 
+                <Button 
                 Content=""
                 Grid.Column="2" 
                 Grid.Row="1" 
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content=""
                 Grid.Column="0"
                 Grid.Row="1"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button
+                <Button
                 Content=""
                 Grid.Column="0"
                 Grid.Row="5"
                 Style="{StaticResource botonAccion}"
                 />
 
-            <Button 
+                <Button 
                 Content=""
                 Grid.Column="1"
                 Grid.Row="0"
                 Style="{StaticResource botonAccion}"
                 />
-            <Button 
+                <Button 
                 Content="" 
                 Grid.Column="1"
                 Grid.Row="1" 
                 Style="{StaticResource botonAccion}"
                 />
 
-        </Grid>
+            </Grid>
+        </StackPanel>
+        <DockPanel 
+            Margin="12" 
+            Visibility="Collapsed"
+            x:Name="lastResults">
+            <StackPanel DockPanel.Dock="Top">
+                <Label
+                    Content="Last Results"
+                    FontSize="20"
+                    Margin="0,0,0,10"
+                    Foreground="#F0A500"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"/>
+                <ListView 
+                    x:Name="listViewResultados" 
+                    HorizontalContentAlignment="Right"
+                    BorderThickness="0"
+                    Background="Transparent" 
+                    Foreground="White">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel  VerticalAlignment="Top" />
+                            
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </StackPanel>
+
+        
+
+        </DockPanel>
     </StackPanel>
 
 </Window>

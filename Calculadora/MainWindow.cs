@@ -21,13 +21,14 @@ namespace Calculadora {
     public partial class MainWindow : Window {
         private string currentOperation = "";
         private ObservableCollection<String> list;
+        private bool isResultsOpened = false;
         public MainWindow() {
             InitializeComponent();
             list = new ObservableCollection<string>();
 
         }
         public void AddResultado(string resultado) {
-            if (list.Count == 5) list.Remove(list.First());
+            if(list.Count == 12) list.Remove(list.First());
             list.Add(resultado);
             listViewResultados.ItemsSource = list;
         }
@@ -39,10 +40,10 @@ namespace Calculadora {
         public void ButtonActionPressed(object sender, EventArgs e) {
             Button boton = (Button)sender;
             bool expresionEstaVacia = currentOperation == "";
-            if (expresionEstaVacia) return;
+            if(expresionEstaVacia) return;
             string valorBoton = boton.Content.ToString();
             bool expresionTerminaOperacion = Regex.Match(currentOperation.Last().ToString(), "[/*+-]").Success;
-            if (expresionTerminaOperacion)
+            if(expresionTerminaOperacion)
                 currentOperation = currentOperation[0..^1];
             currentOperation += valorBoton;
             labelResult.Content = currentOperation;
@@ -71,9 +72,9 @@ namespace Calculadora {
         public void ButtonResult(object sender, EventArgs e) {
             string[] actions = { "+", "-", "*", "/" };
             bool expresionEstaVacia = currentOperation == "";
-            if (expresionEstaVacia) return;
+            if(expresionEstaVacia) return;
             bool expresionAcabaEnOperacion = Regex.Match(currentOperation.Last().ToString(), "[+-/*]$").Success;
-            if (expresionAcabaEnOperacion)
+            if(expresionAcabaEnOperacion)
                 currentOperation = currentOperation[0..^1];
 
             labelLastResult.Content = currentOperation;
@@ -82,11 +83,12 @@ namespace Calculadora {
 
         }
         public void ButtonErase(object sender, EventArgs e) {
-            if (currentOperation.Length < 2) {
+            if(currentOperation.Length < 2)
+            {
                 currentOperation = "";
                 labelResult.Content = "0.00";
-            }
-            else {
+            } else
+            {
                 currentOperation = currentOperation[0..^1];
                 labelResult.Content = currentOperation;
             }
@@ -95,7 +97,7 @@ namespace Calculadora {
 
         public void CopyButton(object sender, EventArgs e) {
             bool expresionEstaVacia = currentOperation == "";
-            if (expresionEstaVacia)
+            if(expresionEstaVacia)
                 Clipboard.SetText("0.00");
             else
                 Clipboard.SetText(currentOperation);
@@ -104,8 +106,20 @@ namespace Calculadora {
         public string GetResult() {
             DataTable dataTable = new DataTable();
             var result = dataTable.Compute(currentOperation, "");
-            currentOperation = result.ToString().Replace(",",".");
+            currentOperation = result.ToString().Replace(",", ".");
             return currentOperation;
+        }
+        public void OnMoreResultsButton(object sender, EventArgs e) {
+            if(isResultsOpened)
+            {
+                lastResults.Visibility = (Visibility)2;
+                isResultsOpened = !isResultsOpened;
+
+            } else
+            {
+                lastResults.Visibility = 0;
+                isResultsOpened = !isResultsOpened;
+            }
         }
 
     }
