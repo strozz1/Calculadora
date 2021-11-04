@@ -40,13 +40,19 @@ namespace Calculadora {
         public void ButtonActionPressed(object sender, EventArgs e) {
             Button boton = (Button)sender;
             bool expresionEstaVacia = currentOperation == "";
-            if(expresionEstaVacia) return;
             string valorBoton = boton.Content.ToString();
-            bool expresionTerminaOperacion = Regex.Match(currentOperation.Last().ToString(), "[/*+-]").Success;
-            if(expresionTerminaOperacion)
-                currentOperation = currentOperation[0..^1];
-            currentOperation += valorBoton;
-            labelResult.Content = currentOperation;
+            if(expresionEstaVacia && valorBoton == "-")
+            {
+                currentOperation += valorBoton;
+                labelResult.Content = currentOperation;
+            } else if(!expresionEstaVacia)
+            {
+                bool expresionTerminaOperacion = Regex.Match(currentOperation.Last().ToString(), "[/*+-]").Success;
+                if(expresionTerminaOperacion)
+                    currentOperation = currentOperation[0..^1];
+                        currentOperation += valorBoton;
+                        labelResult.Content = currentOperation;
+            }
         }
         public void ButtonDelete(object sender, EventArgs e) {
             currentOperation = "";
@@ -120,7 +126,8 @@ namespace Calculadora {
                 lastResults.Visibility = 0;
                 isResultsOpened = !isResultsOpened;
             }
-        }public void OnClearButton(object sender, EventArgs e) {
+        }
+        public void OnClearButton(object sender, EventArgs e) {
             list.Clear();
         }
 
