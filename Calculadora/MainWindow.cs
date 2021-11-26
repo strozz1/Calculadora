@@ -62,8 +62,11 @@ namespace Calculadora {
 
             Button boton = (Button)sender;
             string valorBoton = boton.Content.ToString();
-            bool expresionContieneDecimal = Regex.Match(currentOperation, "[.]").Success;
             bool expresionAcabaEnNumero = Regex.Match(currentOperation, "\\d{1}$").Success;
+
+            string [] letras = currentOperation.Split(new Char[] { '+','-','/','*'});
+            bool expresionContieneDecimal = Regex.Match(letras[letras.Length-1], "[.]").Success;
+            
 
             if(expresionContieneDecimal)
                 return;
